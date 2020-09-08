@@ -34,6 +34,7 @@ public:
 class Student : public Person {
 private:
     int year;
+    static int numb;
 
 public:
     Student() : Person(), year(2020) {
@@ -57,17 +58,19 @@ public:
         year++;
     }
 
-    void print() {
+    void print () const {
         cout << "Student's name: " << setw(14) << name  << "; gender: " << setw(6) << gender 
             << "; age: " << age  << "; weight: " << weight  << "; year of study: " << year << endl << endl;
        
     }
 
-    ~Student() {
-        numb--;
+    static int getNumb() {
+        return numb;
     }
 
-    static int numb;
+    ~Student() {
+        numb--;
+    }    
 };
 
 int Student::numb = 0;
@@ -93,6 +96,6 @@ int main()
     c.setAge(26);
     c.print();
 
-    cout << "Total students: " << Student::numb << endl;
+    cout << "Total students: " << Student::getNumb() << endl;
     return 0;
 }
