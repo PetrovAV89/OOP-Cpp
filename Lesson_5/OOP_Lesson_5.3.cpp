@@ -13,14 +13,9 @@ public:
 
     Pair(T val) :  value(val) {   }
 
-    string first() {
-        return Name;
-    }
+    string first() const { return Name;  }
 
-    T second() {
-        return value;
-    
-    }
+    T second() const {  return value;  }
 };
 
 template <class T>
